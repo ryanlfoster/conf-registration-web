@@ -1,0 +1,15 @@
+{
+  "name": "angular-all-unstable",
+  "version": "1.1.5",
+  "main": "./angular.js",
+  "dependencies": {},
+  "gitHead": "ec0fa583d04c7c424154b6cda254c43b63f63657",
+  "readme": "AngularJS\n=========\n\nAngularJS lets you write client-side web applications as if you had a smarter browser.  It lets you\nuse good old HTML (or HAML, Jade and friends!) as your template language and lets you extend HTML’s\nsyntax to express your application’s components clearly and succinctly.  It automatically\nsynchronizes data from your UI (view) with your JavaScript objects (model) through 2-way data\nbinding. To help you structure your application better and make it easy to test, AngularJS teaches\nthe browser how to do dependency injection and inversion of control. Oh yeah and it also helps with\nserver-side communication, taming async callbacks with promises and deferreds; and make client-side\nnavigation and deeplinking with hashbang urls or HTML5 pushState a piece of cake. The best of all:\nit makes development fun!\n\n* Web site: http://angularjs.org\n* Tutorial: http://docs.angularjs.org/tutorial\n* API Docs: http://docs.angularjs.org/api\n* Developer Guide: http://docs.angularjs.org/guide\n* Contribution guidelines: http://docs.angularjs.org/misc/contribute",
+  "readmeFilename": "README.md",
+  "_id": "angular-all-unstable@1.1.5",
+  "description": "AngularJS =========",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lfryc/bower-angular-all-unstable.git"
+  }
+}

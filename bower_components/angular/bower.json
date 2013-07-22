@@ -1,6 +1,6 @@
 {
   "name": "angular",
-  "version": "1.0.7",
+  "version": "v1.0.7",
   "main": "./angular.js",
   "dependencies": {},
   "gitHead": "6c0e81da2073f3831e32ed486d5aabe17bfc915f",
