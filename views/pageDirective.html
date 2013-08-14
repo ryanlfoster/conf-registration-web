@@ -8,6 +8,7 @@
   <div class="row">
     <div class="span3 pull-right">
       <button class="btn btn-block btn-success btn-large" type="submit" data-ng-disabled="!pageForm.$valid" ng-show="nextPage">Next Page</button>
+      <button class="btn btn-block btn-success btn-large" data-ng-click="goToReview()" data-ng-disabled="!registrationComplete" ng-hide="nextPage">Continue</button>
     </div>
   </div>
 </form>
