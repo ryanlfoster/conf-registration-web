@@ -11,8 +11,5 @@
   }
 </style>
 <ul class="unstyled">
-  <li data-ng-repeat="block in blocks">
-    <label>{{block.title}}</label>
-    <show-answer answers="answers" block="block"></show-answer>
-  </li>
+  <li data-ng-repeat="block in blocks"><label>{{block.title}}</label>{{findAnswer(block.id).value}}</li>
 </ul>
