@@ -8,7 +8,7 @@
     <p>or</p>
     <p><a href="{{apiUrl}}auth/relay/login"><img src="images/dba0cb6d.signin-relay.png"></a></p>
     <p>or<br><br>Sign up<br>
-    <form name="emailForm" ng-submit="submit()">
+    <form name="emailForm" ng-submit="submit(email)">
       <input class="span2" name="email" data-ng-model="email" placeholder="Enter your email" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}" required="">
       <button class="btn" type="submit" ng-disabled="!emailForm.email.$valid">Submit</button>
      </form>
