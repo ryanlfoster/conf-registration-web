@@ -11,5 +11,6 @@
     "commit": "ec0fa583d04c7c424154b6cda254c43b63f63657"
   },
   "_source": "git://github.com/lfryc/bower-angular-all-unstable.git",
-  "_target": "~1.1.5"
+  "_target": "~1.1.5",
+  "_originalSource": "angular-all-unstable"
 }
