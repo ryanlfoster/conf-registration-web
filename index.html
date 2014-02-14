@@ -19,8 +19,6 @@
   <link rel="stylesheet" href="styles/9940752f.main.css">
 
   <style>@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600);</style>
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="bower_components/animate.css/animate.css">
 
 </head>
@@ -36,7 +34,6 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<!-- Add your site or application content here -->
 <div class="alert" data-ng-show="growlMessage">
   <button type="button" class="close" data-ng-click="growlMessage=''">&times;</button>
   <strong>Warning!</strong> <span>{{growlMessage}}</span>
@@ -58,16 +55,7 @@
 		</div>
 	</div>
 </header>
-<!--		<div class="crs--headband" ng-style="subHeadStyle">
-			<div class="container-fluid" data-ng-show="adminDashboard">
-			  <div class="crs--tagline-wrapper" >
-			  	<div class="crs--tagline-logo  circle  bg--white  inline-block  center-vertical">
-			  		<i class="icon icon-heart  center-vertical"></i>
-			  	</div>
-				<h1 class="crs--tagline-text  inline-block">Forms for events. Easy peasy.</h1>
-			  </div> 
-			</div>
-		</div>-->
+
 <div class="content mb4" role="main">
 	<div ng-view="">
 	</div>
@@ -75,7 +63,6 @@
 <footer role="contentinfo" class="crs--site-foot">
 	<div class="container-fluid">
 		<a class="btn btn-light" href="http://localhost:9000/#/auth/{{crsToken}}">To the Dev Site, Batman! </a>
-	  
 	</div>
 </footer>
 
@@ -92,15 +79,19 @@
   }(document, 'script'));
 </script>
 
-  <script src="//www.bugsense.com/static/js/global/bugsense.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var bugsense = new Bugsense( { apiKey: '8e70b821' } );
-  </script>
-<script src="bower_components/angular-all-unstable/angular.js"></script>
+<script src="//www.bugsense.com/static/js/global/bugsense.js" type="text/javascript"></script>
+<script type="text/javascript">
+  //var bugsense = new Bugsense( { apiKey: '8e70b821' } );
+</script>
 
-<script src="scripts/f7d30b2b.scripts.js"></script>
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+
+<script src="scripts/325bbbfc.scripts.js"></script>
+
 <script src="scripts/ce0820ba.plugins.js"></script>
 
-<script src="scripts/815aad56.modules.js"></script>
+<script src="scripts/f700c06e.modules.js"></script>
 </body>
 </html>
