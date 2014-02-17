@@ -175,7 +175,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
     $provide.decorator('$exceptionHandler', ['$delegate', function ($delegate) {
       return function (exception, cause) {
         $delegate(exception, cause);
-        bugsense.notify(exception, cause);
+//        bugsense.notify(exception, cause);
       };
     }]);
   });
