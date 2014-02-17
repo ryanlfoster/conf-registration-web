@@ -31,14 +31,11 @@
     </ul>
   </div>
 
-  Saved Views:
-  <select data-ng-model="activeRegView" ng-options="view.id as view.name for view in registrationViewsDropdown" ng-change="regViewChange()" ng-selected="activeRegView"></select>
-  <a href="" data-ng-show="activeRegView === ''" data-ng-click="saveRegView()">Save View</a><a href="" data-ng-show="activeRegView !== '' && activeRegView !== 'all'" data-ng-click="delRegView()">Delete View</a>
-
   <table cellspacing="0" class="table-bordered table-striped table-hover table-condensed">
     <thead>
     <tr>
       <th data-ng-repeat="block in blocks | filter:{ visible: true }"><a href="" ng-click="setOrder(block.id)">{{block.title}}</a></th>
+      <th>Total Due</th>
       <th>Payments</th>
     </tr>
     </thead>
@@ -47,7 +44,10 @@
       <td data-ng-repeat="block in blocks | filter:{ visible: true }">
         <show-answer answers="registration.answers" block="block"></show-answer>
       </td>
-      <td><a href="" data-ng-click="viewPayments('{{registration.id}}')">View</a></td>
+      <td>
+        <total-due registration="registration" permissions="permissions"></total-due>
+      </td>
+      <td><a href="" data-ng-click="viewPayments(registration.id)">View</a></td>
     </tr>
     </tbody>
   </table>
