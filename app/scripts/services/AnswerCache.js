@@ -9,15 +9,13 @@ angular.module('confRegistrationWebApp')
       return 'answers/' + (id || '');
     };
 
-    var update = function (path, object) {
-      updateServer(object);
-      cache.put(path, object);
+    var update = function (path, object, callback) {
+      updateServer(object, callback);
       blockIndex.put(object.block, object);
-      $rootScope.$broadcast(path, object);
     };
 
-    var updateServer = function (answer) {
-      $http.put(path(answer.id), answer);
+    var updateServer = function (answer, callback) {
+      $http.put(path(answer.id), answer).then(callback);
     };
 
     var checkCache = function (path, callback) {
@@ -30,6 +28,10 @@ angular.module('confRegistrationWebApp')
           callback(conferences, path);
         });
       }
+    };
+
+    this.update = function(answer, callback) {
+      update(path(answer.id), answer, callback);
     };
 
     this.query = function (id) {
@@ -50,14 +52,18 @@ angular.module('confRegistrationWebApp')
       cache.put(path(answer.id), answer);
     };
 
-    this.syncBlock = function (scope, name, registration) {
+    this.syncBlock = function (scope, name, registration, cb) {
       scope.$watch(name, function (answer) {
         if (angular.isDefined(answer)) {
           if(angular.isDefined(registration) &&
               JSON.parse(localStorage.getItem('offlineMode-' + registration.conferenceId)) === true) {
             localStorage.setItem('answer-' + answer.id, JSON.stringify(answer));
           } else {
-            update(path(answer.id), answer);
+            var callback = cb || function () {
+              cache.put(path, angular.copy(answer));
+              $rootScope.$broadcast(path, answer);
+            };
+            update(path(answer.id), answer, callback);
           }
         }
       }, true);

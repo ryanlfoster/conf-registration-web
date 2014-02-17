@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('confRegistrationWebApp')
-  .controller('AdminDataCtrl', function ($scope, registrations, conference, permissions, $modal) {
-
+  .controller('AdminDataCtrl', function ($scope, registrations, conference, permissions, $modal, AnswerCache) {
     $scope.conference = conference;
     $scope.offlineMode = JSON.parse(localStorage.getItem('offlineMode-' + $scope.conference.id));
 
@@ -91,5 +90,27 @@ angular.module('confRegistrationWebApp')
       localStorage.setItem('offlineMode-' + $scope.conference.id, true);
       localStorage.setItem('conf-' + $scope.conference.id, JSON.stringify($scope.conference));
       localStorage.setItem('regs-' + $scope.conference.id, JSON.stringify($scope.registrations));
+      $scope.offlineMode = true;
     }
+
+    $scope.syncCachedData = function() {
+      localStorage.removeItem('offlineMode-' + $scope.conference.id);
+      var updatedAnswerKeys = [];
+
+      for(var i = 0; i < localStorage.length; i++ ) {
+        if(localStorage.key(i).substring(0,6) == "answer") {
+          updatedAnswerKeys.push(localStorage.key(i));
+        }
+      }
+
+      _.each(updatedAnswerKeys, function(updatedAnswerKey){
+         AnswerCache.update(JSON.parse(localStorage.getItem(updatedAnswerKey)), function() {
+           localStorage.removeItem(updatedAnswerKey);
+         });
+      });
+
+      localStorage.removeItem('conf-' + $scope.conference.id);
+      localStorage.removeItem('regs-' + $scope.conference.id);
+      $scope.offlineMode = false;
+    };
   });
