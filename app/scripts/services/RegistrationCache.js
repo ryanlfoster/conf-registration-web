@@ -68,14 +68,20 @@ angular.module('confRegistrationWebApp')
 
     this.getAllForConference = function (conferenceId) {
       var defer = $q.defer();
-
-      checkCache('conferences/' + conferenceId + '/registrations', function (registrations) {
-        angular.forEach(registrations, function (registration) {
-          update(path(registration.id), registration);
+      var offlineMode = JSON.parse(localStorage.getItem('offlineMode=' + conferenceId));
+      if(offlineMode === true) {
+        var offlineRegistrations = localStorage.getItem('regs-' + conferenceId);
+        if(angular.isDefined(offlineRegistrations)) {
+          defer.resolve(JSON.parse(offlineRegistrations));
+        }
+      } else {
+        checkCache('conferences/' + conferenceId + '/registrations', function (registrations) {
+          angular.forEach(registrations, function (registration) {
+            update(path(registration.id), registration);
+          });
+          defer.resolve(registrations);
         });
-        defer.resolve(registrations);
-      });
-
+      }
       return defer.promise;
     };
   });

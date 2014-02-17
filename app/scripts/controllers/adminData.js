@@ -4,6 +4,7 @@ angular.module('confRegistrationWebApp')
   .controller('AdminDataCtrl', function ($scope, registrations, conference, permissions, $modal) {
 
     $scope.conference = conference;
+    $scope.offlineMode = JSON.parse(localStorage.getItem('offlineMode-' + $scope.conference.id));
 
     $scope.blocks = [];
     $scope.reversesort = false;
@@ -85,4 +86,10 @@ angular.module('confRegistrationWebApp')
       $modal.open(paymentModalOptions).result.then(function () {
       });
     };
+
+    $scope.cacheForOffline = function() {
+      localStorage.setItem('offlineMode-' + $scope.conference.id, true);
+      localStorage.setItem('conf-' + $scope.conference.id, JSON.stringify($scope.conference));
+      localStorage.setItem('regs-' + $scope.conference.id, JSON.stringify($scope.registrations));
+    }
   });
