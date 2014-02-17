@@ -23,7 +23,8 @@ angular.module('confRegistrationWebApp')
         $scope.createEditDialog = function () {
           if ($scope.answerEditable) {
             $modal.open(editAnswerDialogOptions).result.then(function () {
-              AnswerCache.syncBlock($scope, 'answer');
+              var reg = $scope.$parent.$parent.registration;
+              AnswerCache.syncBlock($scope, 'answer', reg);
             });
           }
         };
