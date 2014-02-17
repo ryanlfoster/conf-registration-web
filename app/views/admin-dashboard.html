@@ -16,6 +16,7 @@
               <a class="crs--event-link  block-center  full-height" href="#/adminData/{{conference.id}}">
                 <h2 class="crs--event-title  center-vertical">{{conference.name}}</h2>
               </a>
+               <h3 data-ng-show="isOffline(conference.id)" class="center-vertical">(Offline)</h3>
             </div>
 
             <div class="crs--card-meta">

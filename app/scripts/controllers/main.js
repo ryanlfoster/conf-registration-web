@@ -19,6 +19,9 @@ angular.module('confRegistrationWebApp')
     }
     ConfCache.query();
 
+    $scope.isOffline = function(conferenceId) {
+      return JSON.parse(localStorage.getItem("offlineMode-" + conferenceId));
+    }
     $scope.createConference = function () {
       $modal.open({
         templateUrl: 'views/createConference.html',
