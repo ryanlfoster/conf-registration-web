@@ -14,16 +14,16 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         templateUrl: 'views/admin-dashboard.html',
         controller: 'OfflineMainCtrl',
         resolve: {
-          conferences : ['ConfCache', function(ConfCache) {
+          conferences : [function () {
             var confKeys = [];
             var conferences = [];
 
-            for(var i = 0; i < localStorage.length; i++ ) {
-              if(localStorage.key(i).substring(0,4) == "conf") {
+            for (var i = 0; i < localStorage.length; i++) {
+              if (localStorage.key(i).substring(0, 4) === 'conf') {
                 confKeys.push(localStorage.key(i));
               }
             }
-            _.each(confKeys, function(key) {
+            _.each(confKeys, function (key) {
               conferences.push(JSON.parse(localStorage.getItem(key)));
             });
             return conferences;
@@ -209,15 +209,15 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
       };
     }]);
   })
-  .run(function($window, $rootScope) {
+  .run(function ($window, $rootScope) {
     $rootScope.online = navigator.onLine;
-    $window.addEventListener("offline", function () {
-      $rootScope.$apply(function() {
+    $window.addEventListener('offline', function () {
+      $rootScope.$apply(function () {
         $rootScope.online = false;
       });
     }, false);
-    $window.addEventListener("online", function () {
-      $rootScope.$apply(function() {
+    $window.addEventListener('online', function () {
+      $rootScope.$apply(function () {
         $rootScope.online = true;
       });
     }, false);

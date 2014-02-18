@@ -86,27 +86,27 @@ angular.module('confRegistrationWebApp')
       });
     };
 
-    $scope.cacheForOffline = function() {
+    $scope.cacheForOffline = function () {
       localStorage.setItem('offlineMode-' + $scope.conference.id, true);
       localStorage.setItem('conf-' + $scope.conference.id, JSON.stringify($scope.conference));
       localStorage.setItem('regs-' + $scope.conference.id, JSON.stringify($scope.registrations));
       $scope.offlineMode = true;
-    }
+    };
 
-    $scope.syncCachedData = function() {
+    $scope.syncCachedData = function () {
       localStorage.removeItem('offlineMode-' + $scope.conference.id);
       var updatedAnswerKeys = [];
 
-      for(var i = 0; i < localStorage.length; i++ ) {
-        if(localStorage.key(i).substring(0,6) == "answer") {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 6) === 'answer') {
           updatedAnswerKeys.push(localStorage.key(i));
         }
       }
 
-      _.each(updatedAnswerKeys, function(updatedAnswerKey){
-         AnswerCache.update(JSON.parse(localStorage.getItem(updatedAnswerKey)), function() {
-           localStorage.removeItem(updatedAnswerKey);
-         });
+      _.each(updatedAnswerKeys, function (updatedAnswerKey) {
+        AnswerCache.update(JSON.parse(localStorage.getItem(updatedAnswerKey)), function () {
+          localStorage.removeItem(updatedAnswerKey);
+        });
       });
 
       localStorage.removeItem('conf-' + $scope.conference.id);

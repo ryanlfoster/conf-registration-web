@@ -6,10 +6,10 @@ angular.module('confRegistrationWebApp')
 
     var offlineControllers = ['OfflineMainCtrl', 'AdminDataCtrl'];
 
-    if(offlineControllers.indexOf($route.current.$$route.controller) >= 0) {
+    if (offlineControllers.indexOf($route.current.$$route.controller) >= 0) {
       defer.resolve('Okay');
     } else {
-      if($rootScope.online !== true) {
+      if ($rootScope.online !== true) {
         $location.path('/offline');
         defer.resolve('Redirected');
       } else {

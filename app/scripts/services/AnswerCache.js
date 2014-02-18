@@ -30,7 +30,7 @@ angular.module('confRegistrationWebApp')
       }
     };
 
-    this.update = function(answer, callback) {
+    this.update = function (answer, callback) {
       update(path(answer.id), answer, callback);
     };
 
@@ -55,7 +55,7 @@ angular.module('confRegistrationWebApp')
     this.syncBlock = function (scope, name, registration, cb) {
       scope.$watch(name, function (answer) {
         if (angular.isDefined(answer)) {
-          if(angular.isDefined(registration) &&
+          if (angular.isDefined(registration) &&
               JSON.parse(localStorage.getItem('offlineMode-' + registration.conferenceId)) === true) {
             localStorage.setItem('answer-' + answer.id, JSON.stringify(answer));
           } else {

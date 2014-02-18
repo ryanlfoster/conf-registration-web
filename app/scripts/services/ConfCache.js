@@ -29,14 +29,14 @@ angular.module('confRegistrationWebApp')
     this.get = function (id) {
       var defer = $q.defer();
       var offlineMode = JSON.parse(localStorage.getItem('offlineMode' + id));
-      if(offlineMode === true) {
+      if (offlineMode === true) {
         defer.resolve(JSON.parse(localStorage.getItem('conf-' + id)));
       } else {
         checkCache(path(id), function (conferences) {
           defer.resolve(conferences);
         });
       }
-     return defer.promise;
+      return defer.promise;
     };
 
     this.create = function (name) {

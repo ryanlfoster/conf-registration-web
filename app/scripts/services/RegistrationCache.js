@@ -69,9 +69,9 @@ angular.module('confRegistrationWebApp')
     this.getAllForConference = function (conferenceId) {
       var defer = $q.defer();
       var offlineMode = JSON.parse(localStorage.getItem('offlineMode-' + conferenceId));
-      if(offlineMode === true) {
+      if (offlineMode === true) {
         var offlineRegistrations = localStorage.getItem('regs-' + conferenceId);
-        if(angular.isDefined(offlineRegistrations)) {
+        if (angular.isDefined(offlineRegistrations)) {
           defer.resolve(JSON.parse(offlineRegistrations));
         }
       } else {
