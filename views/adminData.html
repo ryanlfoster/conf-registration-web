@@ -16,7 +16,7 @@
 </style>
 
 <div admin-nav=""></div>
-<h2>{{conference.name}}</h2>
+<h2>{{conference.name}} <span data-ng-show="offlineMode">(offline)</span></h2>
 
 <div data-ng-show="registrations.length > 0">
   Filter: <input type="text" ng-model="searchFilter">
