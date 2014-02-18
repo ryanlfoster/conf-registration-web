@@ -5,10 +5,12 @@ angular.module('confRegistrationWebApp')
     return {
       templateUrl: 'views/crsSigninBox.html',
       restrict: 'E',
-      controller: function ($scope, $document, Model, apiUrl) {
+      controller: function ($scope, $rootScope, $document, Model, apiUrl) {
         $scope.document = $document;
         $scope.apiUrl = apiUrl;
-        Model.subscribe($scope, 'profileData', 'profile');
+        if ($rootScope.online === true) {
+          Model.subscribe($scope, 'profileData', 'profile');
+        }
       },
       link: function postLink(scope, element) {
         scope.openBox = function () {

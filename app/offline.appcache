@@ -113,7 +113,7 @@ CACHE:
 /views/totalDue.html
 
 NETWORK:
-http://localhost:8080/crs-http-json-api*
+*
+#cache this
 
 SETTINGS:
-prefer-online
