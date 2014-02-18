@@ -6,7 +6,28 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         templateUrl: 'views/admin-dashboard.html',
         controller: 'MainCtrl',
         resolve: {
-          enforceAuth: $injector.get('enforceAuth')
+          enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline')
+        }
+      })
+      .when('/offline', {
+        templateUrl: 'views/admin-dashboard.html',
+        controller: 'OfflineMainCtrl',
+        resolve: {
+          conferences : ['ConfCache', function(ConfCache) {
+            var confKeys = [];
+            var conferences = [];
+
+            for(var i = 0; i < localStorage.length; i++ ) {
+              if(localStorage.key(i).substring(0,4) == "conf") {
+                confKeys.push(localStorage.key(i));
+              }
+            }
+            _.each(confKeys, function(key) {
+              conferences.push(JSON.parse(localStorage.getItem(key)));
+            });
+            return conferences;
+          }]
         }
       })
       .when('/wizard/:conferenceId', {
@@ -14,6 +35,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'AdminWizardCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           conference: ['$route', 'ConfCache', function ($route, ConfCache) {
             return ConfCache.get($route.current.params.conferenceId);
           }]
@@ -24,6 +46,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'RegistrationCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           conference: ['$route', 'ConfCache', function ($route, ConfCache) {
             return ConfCache.get($route.current.params.conferenceId);
           }],
@@ -53,6 +76,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'AdminDetailsCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           registrations: ['$route', 'RegistrationCache', function ($route, RegistrationCache) {
             return RegistrationCache.getAllForConference($route.current.params.conferenceId);
           }],
@@ -67,6 +91,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
       .when('/register/:conferenceId', {
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           redirectToRegistration: ['$route', 'ConfCache', '$location', function ($route, ConfCache, $location) {
             var conferenceId = $route.current.params.conferenceId;
             ConfCache.get(conferenceId).then(function () {
@@ -80,6 +105,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'ReviewRegistrationCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           registration: ['$route', 'RegistrationCache', function ($route, RegistrationCache) {
             return RegistrationCache.getCurrent($route.current.params.conferenceId)
               .then(function (currentRegistration) {
@@ -96,6 +122,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'paymentCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           registration: ['$route', 'RegistrationCache', function ($route, RegistrationCache) {
             return RegistrationCache.getCurrent($route.current.params.conferenceId)
               .then(function (currentRegistration) {
@@ -112,6 +139,7 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         controller: 'AdminPermissionsCtrl',
         resolve: {
           enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline'),
           conference: ['$route', 'ConfCache', function ($route, ConfCache) {
             return ConfCache.get($route.current.params.conferenceId);
           }]
@@ -121,11 +149,13 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
         template: '{{message}}',
         controller: 'ActiviatePermissionCtrl',
         resolve: {
-          enforceAuth: $injector.get('enforceAuth')
+          enforceAuth: $injector.get('enforceAuth'),
+          requireOnline: $injector.get('requireOnline')
         }
       })
       .when('/auth/:token', {
         resolve: {
+          requireOnline: $injector.get('requireOnline'),
           redirectToIntendedRoute: ['$location', '$cookies', '$route', '$rootScope', 'ProfileCache',
             function ($location, $cookies, $route, $rootScope, ProfileCache) {
               $cookies.crsAuthProviderType = '';
@@ -178,4 +208,17 @@ angular.module('confRegistrationWebApp', ['ngRoute', 'ngResource', 'ngCookies', 
 //        bugsense.notify(exception, cause);
       };
     }]);
+  })
+  .run(function($window, $rootScope) {
+    $rootScope.online = navigator.onLine;
+    $window.addEventListener("offline", function () {
+      $rootScope.$apply(function() {
+        $rootScope.online = false;
+      });
+    }, false);
+    $window.addEventListener("online", function () {
+      $rootScope.$apply(function() {
+        $rootScope.online = true;
+      });
+    }, false);
   });
