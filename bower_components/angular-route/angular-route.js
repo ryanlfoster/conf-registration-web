@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14-build.2304+sha.2f45133
+ * @license AngularJS v1.2.14-build.2317+sha.348a771
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -64,10 +64,10 @@ function $RouteProvider(){
    *    * `path` can contain optional named groups with a question mark: e.g.`:name?`.
    *
    *    For example, routes like `/color/:color/largecode/:largecode*\/edit` will match
-   *    `/color/brown/largecode/code/with/slashs/edit` and extract:
+   *    `/color/brown/largecode/code/with/slashes/edit` and extract:
    *
    *    * `color: brown`
-   *    * `largecode: code/with/slashs`.
+   *    * `largecode: code/with/slashes`.
    *
    *
    * @param {Object} route Mapping information to be assigned to `$route.current` on route
