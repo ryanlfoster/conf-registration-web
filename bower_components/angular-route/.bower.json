@@ -1,16 +1,16 @@
 {
   "name": "angular-route",
-  "version": "1.2.14-build.2317+sha.348a771",
+  "version": "1.2.14-build.2344+sha.18c41af",
   "main": "./angular-route.js",
   "dependencies": {
-    "angular": "1.2.14-build.2317+sha.348a771"
+    "angular": "1.2.14-build.2344+sha.18c41af"
   },
   "homepage": "https://github.com/angular/bower-angular-route",
-  "_release": "1.2.14-build.2317+sha.348a771",
+  "_release": "1.2.14-build.2344+sha.18c41af",
   "_resolution": {
     "type": "version",
-    "tag": "v1.2.14-build.2317+sha.348a771",
-    "commit": "8552fb0e1b808da6409ca5abfe1dca590848c320"
+    "tag": "v1.2.14-build.2344+sha.18c41af",
+    "commit": "d162dc76556a7be70c53207fbea38a00567ff68f"
   },
   "_source": "git://github.com/angular/bower-angular-route.git",
   "_target": "~v1.2.13",
