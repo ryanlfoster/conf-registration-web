@@ -1,0 +1,22 @@
+<div ng-form="blockForm">
+  <ul class="unstyled">
+    <li data-ng-repeat="choice in block.content.choices">
+      <input name="{{block.id}}-{{choice}}" id="{{block.id}}-{{choice}}" type="checkbox" ng-required="block.required" ng-model="answer.value[choice]" ng-value="true">
+      <label class="crs-checkbox-label" for="{{block.id}}-{{choice}}"><span></span>
+        <tag ng-show="!editMode">{{choice}}</tag>
+        <tag ng-show="editMode"><input type="text" data-ng-model="choice"> <a href="" data-ng-click="editBlockDeleteOption($index)">Delete</a>
+        </tag>
+      </label>
+    </li>
+    <li ng-show="editMode">
+      <input id="{{block.id}}-new" type="checkbox">
+      <label for="{{block.id}}-new"><span></span>
+
+        <div class="input-append">
+          <input data-ng-model="editBlockAddOptionValue" type="text" placeholder="Add Option">
+          <a class="btn" data-ng-click="editBlockAddOption();">Add</a>
+        </div>
+      </label>
+    </li>
+  </ul>
+</div>
