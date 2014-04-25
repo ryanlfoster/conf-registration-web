@@ -1,6 +1,5 @@
-@keyframes fadeOutDownBig {
+@keyframes slideOutDown {
   0% {
-    opacity: 1;
     transform: translateY(0);
   }
 
@@ -10,6 +9,6 @@
   }
 }
 
-.fadeOutDownBig {
-  animation-name: fadeOutDownBig;
+.slideOutDown {
+  animation-name: slideOutDown;
 }
