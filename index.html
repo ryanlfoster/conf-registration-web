@@ -2,9 +2,7 @@
 <html ng-app="confRegistrationWebApp">
 <head>
   <meta charset="UTF-8">
-  <title>Event Registration Tool | {{globalPage.title}}</title>
-  <!--<link rel="icon" type="image/png" href="/img/favicon.png" />-->
-
+  <title ng-bind="generateTitle(globalPage.title)"></title>
   <!-- jQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -22,20 +20,15 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <!-- End Bootstrap -->
 
-  <!-- Typekit -->
-  <script type="text/javascript" src="//use.typekit.net/mgc7mdg.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <!-- End Typekit -->
-
   <!-- CSS -->
   <link rel="stylesheet" href="/components/font-awesome/css/bbfef938.font-awesome.min.css">
   <link rel="stylesheet" href="/components/bootstrap-datetimepicker/css/78145b99.bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" href="/css/7b9ac7e1.style.css">
+  <link rel="stylesheet" href="/css/ce546519.style.css">
   <!-- End CSS -->
 
   <script src="scripts/a6bbd403.components.js"></script>
 
-  <script src="scripts/13289c5b.eventApp.js"></script>
+  <script src="scripts/d941146e.eventApp.js"></script>
 
   <script type="text/javascript" src="//airbrake.io/javascripts/notifier.js"></script>
   <script type="text/javascript">
