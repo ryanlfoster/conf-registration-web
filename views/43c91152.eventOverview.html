@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-9">
+    <div class="row">
+      <div class="col-xs-6">
+        <section>
+          <a href="#/eventDetails/{{conference.id}}" class="btn pull-right" role="button"><i class="fa fa-pencil"></i> Edit</a>
+          <h2>Event Information</h2>
+          <p><strong>{{conference.name}}</strong></p>
+          <p ng-bind="conference.description" ng-show="conference.description" class="eventhub-linebreak"></p>
+          <p>{{conference.eventStartTime | date:'MMM d, y h:mm a'}} -
+            {{conference.eventEndTime | date:'MMM d, y h:mm a'}}</p>
+          <p ng-show="conference.locationName">{{conference.locationName}}
+            <span ng-show="conference.locationAddress"><br>{{conference.locationAddress}}<br>{{conference.locationCity}}, {{conference.locationState}}</span>
+          </p>
+        </section>
+      </div>
+      <div class="col-xs-6">
+        <section>
+          <h2>Registration Window</h2>
+          <p>{{conference.registrationStartTime | date:'MMM d, y h:mm a'}} -
+            {{conference.registrationEndTime | date:'MMM d, y h:mm a'}}</p>
+          <p class="bg-success" style="padding: 6px; font-weight: bold" ng-show="conference.registrationOpen">Registration is currently open.</p>
+          <p class="bg-danger" style="padding: 6px; font-weight: bold" ng-show="!conference.registrationOpen">Registration is currently closed.</p>
+        </section>
+      </div>
+    </div>
+    <section>
+      <h2>Links</h2>
+      <label>Registration Link</label><br>
+      <div class="input-group">
+        <input type="text" id="registrationUrl" class="form-control marginless" ng-model="registrationUrl" select-on-click="" readonly="readonly">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-primary" select-on-click="registrationUrl">Select</button>
+        </span>
+      </div>
+    </section>
+  </div>
+
+  <aside class="col-xs-3">
+    <section>
+      <h3>Event Stats</h3>
+      <div class="row eventstat-icon">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
+          <i class="fa fa-users green"></i>
+        </div>
+        <div class="col-xs-4">
+          {{conference.completedRegistrationCount}}
+        </div>
+      </div>
+      <a class="link" href="#/eventRegistrations/{{conference.id}}">Registrations <i class="fa fa-chevron-right"></i></a>
+    </section>
+  </aside>
+</div>
