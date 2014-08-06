@@ -963,7 +963,7 @@ S.VERSION; //1.0.0
 Quirks
 ------
 
-`decodeHtmlEntities()` converts `&nbsp;` to **0xa0** (160) and not **0x10** (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to fixed in `string.js` at some point in time.
+`decodeHtmlEntities()` converts `&nbsp;` to **0xa0** (160) and not **0x10** (20). Most browsers consider 0xa0 to be whitespace characters, Internet Explorer does not despite it being part of the ECMA standard. Google Closure does a good job of normalizing this behavior. This may need to be fixed in `string.js` at some point in time.
 
 
 
@@ -1028,7 +1028,9 @@ If you contribute to this library, just modify `string.js`, `string.test.js`, an
 - [*] [James Manning](https://github.com/jamesmanning)
 - [*] [Nathan Friedly](https://github.com/nfriedly)
 - [*] [Alison Rowland](https://github.com/arowla)
-- [*] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [Venkatraman.R](https://github.com/ramsunvtech)
+- [1] [r3Fuze](https://github.com/r3Fuze)
+- [3] [Sergio Muriel](https://github.com/Sergio-Muriel)
 
 
 Roadmap to v2.0
