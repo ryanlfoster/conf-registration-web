@@ -13,10 +13,9 @@
   <!-- End jQuery -->
 
   <!-- AngularJS -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-resource.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-cookies.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-cookies.min.js"></script>
   <!-- End AngularJS -->
 
   <!-- Bootstrap -->
@@ -25,14 +24,14 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- End Bootstrap -->
 
-  <link rel="stylesheet" href="css/2a1a1ac3.2a1a1ac3.components.css"/>
-  <link rel="stylesheet" href="/css/ffd84f08.b97bc6e6.style.css">
+  <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
+  <link rel="stylesheet" href="/css/79a6f902.0db31127.style.css">
 
-  <script src="scripts/07e18ad7.07e18ad7.components.js"></script>
-  <script src="scripts/12871ec2.b23fe741.eventApp.js"></script>
+  <script src="scripts/f4440fb3.f4440fb3.components.js"></script>
+  <script src="scripts/512b1f69.68aaa5d1.eventApp.js"></script>
 
-  <script type="text/javascript" src="//airbrake.io/javascripts/notifier.js"></script>
-  <script type="text/javascript">
+  <script src="//airbrake.io/javascripts/notifier.js"></script>
+  <script>
     Hoptoad.setKey('e7a93aafa70a5d3929679c5ad95bf8c7');
     Hoptoad.setHost('errors.uscm.org');
   </script>
@@ -115,16 +114,16 @@
     </div>
   </section>
 
-  <div class="row" ng-show="registerMode==='preview'" style="text-align:center; background:rgba(255, 165, 0, .5); padding:8px; margin:auto">
+  <div class="row previewRow" ng-show="registerMode === 'preview'">
     <div class="col-xs-12" style="font-size:24px">
       Preview Mode
     </div>
-    <div class="col-xs-12" style="font-size:12px">
+    <div class="col-xs-12">
       <ul class="horizontal">
-        <li class=""><a ng-href="#/eventOverview/{{globalPage.confId}}">Overview</a></li>
-        <li class=""><a ng-href="#/eventRegistrations/{{globalPage.confId}}">Registrations</a></li>
-        <li class=""><a ng-href="#/eventDetails/{{globalPage.confId}}">Details</a></li>
-        <li class=""><a ng-href="#/eventForm/{{globalPage.confId}}">Questions</a></li>
+        <li><a ng-href="#/eventOverview/{{globalPage.confId}}">Overview</a></li>
+        <li> | <a ng-href="#/eventRegistrations/{{globalPage.confId}}">Registrations</a></li>
+        <li> | <a ng-href="#/eventDetails/{{globalPage.confId}}">Details</a></li>
+        <li> | <a ng-href="#/eventForm/{{globalPage.confId}}">Questions</a></li>
       </ul>
     </div>
   </div>
