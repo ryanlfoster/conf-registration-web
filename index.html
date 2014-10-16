@@ -31,10 +31,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/d12dc302.bc5d2b3b.style.css">
+  <link rel="stylesheet" href="/css/0f8d6c46.b17252a3.style.css">
 
   <script src="scripts/c33068b2.c33068b2.components.js"></script>
-  <script src="scripts/b2c6121e.62fc03d2.eventApp.js"></script>
+  <script src="scripts/2223084a.aabbe765.eventApp.js"></script>
 
   <script src="//airbrake.io/javascripts/notifier.js"></script>
   <script>
@@ -76,11 +76,11 @@
   <section id="pagetitle" ng-class="globalPage.class">
     <div class="container">
       <div class="row">
-        <div ng-class="{'col-xs-3': globalPage.class === 'dashboard', 'col-xs-4': globalPage.class !== 'dashboard'}">
+        <div ng-class="{'col-xs-3': !globalPage.confId, 'col-xs-4': globalPage.confId}">
           <h1 ng-bind="globalPage.title"></h1>
         </div>
-        <div ng-class="{'col-xs-6': globalPage.class === 'dashboard', 'col-xs-5': globalPage.class !== 'dashboard'}">
-          <nav id="subnav" ng-show="globalPage.mainClass !== 'dashboard'" admin-nav="">
+        <div ng-class="{'col-xs-6': !globalPage.confId, 'col-xs-5': globalPage.confId}">
+          <nav id="subnav" ng-show="globalPage.confId" admin-nav="">
           </nav>
         </div>
         <div class="col-xs-3 right">
@@ -135,7 +135,7 @@
   </div>
 </div>
 
-<main class="container" ng-class="globalPage.mainClass" ng-view=""></main>
+<main ng-class="globalPage.mainClass" ng-view=""></main>
 
 <footer id="pagefooter" ng-show="globalPage.footer">
   <div class="container">
