@@ -30,7 +30,7 @@
 
       <p class="registrantPrice">
         <strong ng-show="conference.registrantTypes.length > 1">{{getRegistrantType(r.registrantTypeId).name}}</strong>
-        <span ng-show="r.calculatedTotalDue"><br>{{r.calculatedTotalDue | moneyFormat}}</span>
+        <span ng-show="r.calculatedTotalDue"><br>${{r.calculatedTotalDue}}</span>
       </p>
     </div>
 
@@ -65,11 +65,11 @@
         <dd>
           <label>
           <input type="radio" ng-model="currentPayment.amount" ng-value="currentRegistration.calculatedMinimumDeposit">
-          {{currentRegistration.calculatedMinimumDeposit | moneyFormat}}
+          ${{currentRegistration.calculatedMinimumDeposit}}
           </label><br>
           <label ng-show="currentRegistration.calculatedTotalDue !== currentRegistration.calculatedMinimumDeposit">
             <input type="radio" ng-model="currentPayment.amount" ng-value="currentRegistration.calculatedTotalDue">
-            {{currentRegistration.calculatedTotalDue | moneyFormat}}
+            ${{currentRegistration.calculatedTotalDue}}
           </label>
         </dd>
 
@@ -91,7 +91,7 @@
       <tbody>
       <tr ng-repeat="r in currentRegistration.registrants">
         <td>{{registrantName(r)}}</td>
-        <td>{{r.calculatedTotalDue | moneyFormat}}</td>
+        <td>${{r.calculatedTotalDue}}</td>
       </tr>
       </tbody>
     </table>
@@ -101,15 +101,15 @@
         <table class="table pull-right" style="width:300px">
           <tr>
             <th>Total Cost</th>
-            <td width="90">{{currentRegistration.calculatedTotalDue | moneyFormat}}</td>
+            <td width="90">${{currentRegistration.calculatedTotalDue}}</td>
           </tr>
           <tr>
             <th>Payment</th>
-            <td>{{currentPayment.amount | moneyFormat}}</td>
+            <td>${{currentPayment.amount}}</td>
           </tr>
           <tr>
             <th>Remaining Balance</th>
-            <td>{{(currentRegistration.calculatedTotalDue - currentPayment.amount) | moneyFormat}}</td>
+            <td>${{currentRegistration.calculatedTotalDue - currentPayment.amount}}</td>
           </tr>
         </table>
       </div>
