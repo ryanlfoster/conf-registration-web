@@ -4,7 +4,6 @@
   <ng-switch on="block.type">
     <p ng-switch-when="paragraphContent" ng-bind="block.content" class="eventhub-linebreak"></p>
     <text-question block="block" ng-switch-when="textQuestion"></text-question>
-    <textarea-question block="block" ng-switch-when="textareaQuestion"></textarea-question>
     <radio-question block="block" ng-switch-when="radioQuestion"></radio-question>
     <checkbox-question block="block" ng-switch-when="checkboxQuestion"></checkbox-question>
     <phone-question block="block" ng-switch-when="phoneQuestion"></phone-question>
@@ -35,7 +34,6 @@
       <ng-switch on="block.type">
         <p ng-switch-when="paragraphContent" ng-bind="block.content" class="eventhub-linebreak"></p>
         <text-question block="block" ng-switch-when="textQuestion"></text-question>
-        <textarea-question block="block" ng-switch-when="textareaQuestion"></textarea-question>
         <radio-question block="block" ng-switch-when="radioQuestion"></radio-question>
         <checkbox-question block="block" ng-switch-when="checkboxQuestion"></checkbox-question>
         <phone-question block="block" ng-switch-when="phoneQuestion"></phone-question>
