@@ -33,10 +33,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/a45bf567.5e63d9b0.style.css">
+  <link rel="stylesheet" href="/css/62d6d6dd.782ad556.style.css">
 
   <script src="scripts/357a7a91.357a7a91.components.js"></script>
-  <script src="scripts/cc988785.ab49154f.eventApp.js"></script>
+  <script src="scripts/3e20364f.85aa346b.eventApp.js"></script>
 
   <script src="//airbrake.io/javascripts/notifier.js"></script>
   <script>
@@ -115,8 +115,11 @@
   <section id="frontpagetitle">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-10">
           <a ng-href="#/{{registerMode || 'register'}}/{{globalPage.confId}}/page/"><h1 ng-bind="globalPage.title"></h1></a>
+        </div>
+        <div class="col-xs-2 usr-greeting">
+          <a href="#/logout" class="btn btn-link">Logout</a>
         </div>
       </div>
     </div>
