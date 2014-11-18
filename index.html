@@ -33,7 +33,7 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/a45bf567.5e63d9b0.style.css">
+  <link rel="stylesheet" href="/css/95376d7e.6723a9ea.style.css">
 
   <script src="scripts/357a7a91.357a7a91.components.js"></script>
   <script src="scripts/0b9e5e84.57e5b2e5.eventApp.js"></script>
@@ -115,8 +115,11 @@
   <section id="frontpagetitle">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-10">
           <a ng-href="#/{{registerMode || 'register'}}/{{globalPage.confId}}/page/"><h1 ng-bind="globalPage.title"></h1></a>
+        </div>
+        <div class="col-xs-2 usr-greeting">
+          <a href="#/logout" class="btn btn-link">Logout</a>
         </div>
       </div>
     </div>
