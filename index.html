@@ -33,10 +33,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/b90da43c.35f1c9b2.style.css">
+  <link rel="stylesheet" href="/css/95376d7e.6723a9ea.style.css">
 
-  <script src="scripts/c6bda099.c6bda099.components.js"></script>
-  <script src="scripts/3332ff8d.f7dfd807.eventApp.js"></script>
+  <script src="scripts/4ab7665a.4ab7665a.components.js"></script>
+  <script src="scripts/e23b0e0b.09c0537e.eventApp.js"></script>
 
   <script src="//airbrake.io/javascripts/notifier.js"></script>
   <script>
@@ -116,11 +116,10 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-10">
-          <a ng-if="registerMode === 'reviewRegistration'" ng-href="#/{{registerMode}}/{{globalPage.confId}}"><h1 ng-bind="globalPage.title"></h1></a>
-          <a ng-if="registerMode !== 'reviewRegistration'" ng-href="#/{{registerMode || 'register'}}/{{globalPage.confId}}/page/"><h1 ng-bind="globalPage.title"></h1></a>
+          <a ng-href="#/{{registerMode || 'register'}}/{{globalPage.confId}}/page/"><h1 ng-bind="globalPage.title"></h1></a>
         </div>
         <div class="col-xs-2 usr-greeting">
-          <a href="#/logout" class="btn btn-primary">Logout</a>
+          <a href="#/logout" class="btn btn-link">Logout</a>
         </div>
       </div>
     </div>
