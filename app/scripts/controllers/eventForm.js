@@ -43,6 +43,17 @@ angular.module('confRegistrationWebApp')
         message: $sce.trustAsHtml('Saving...')
       };*/
 
+
+      angular.forEach($scope.conference.registrationPages, function(page) {
+        angular.forEach(page.blocks, function(block) {
+          if(block.content !== null) {
+            angular.forEach(block.content.choices, function(choice) {
+              choice.amount = Number(choice.amount);
+            });
+          }
+        });
+      });
+
       $http({
         method: 'PUT',
         url: 'conferences/' + conference.id,
