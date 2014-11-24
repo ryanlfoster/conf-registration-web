@@ -70,13 +70,37 @@
               <label>Possible Answers</label>
               <div ng-repeat="choice in block.content.choices track by $index" style="margin-bottom:6px;">
                   <div class="input-group col-xs-9">
-                      <input ng-model="block.content.choices[$index].value" type="text" class="form-control">
+                      <input ng-model="choice.value" type="text" class="form-control">
                       <span class="input-group-btn">
-                        <button type="button" class="btn" ng-click="editBlockOptionAdvanced($index)">Options</button>
+                        <button type="button" class="btn" ng-click="openWell[type.id] = !openWell[type.id]">Options</button>
                         <button type="button" class="btn btn-danger" ng-click="editBlockDeleteOption($index)">Delete</button>
                       </span>
+
                   </div>
+                <div class="well" collapse="!openWell[type.id]">
+                  <div class="row" ng-show="blockType !== 'selectQuestion'">
+                    <div class="form-group col-xs-12">
+                      <p>Enter a description to add clarity or more information to registrant.</p>
+                      <textarea ng-model="choice.desc" class="form-control" style="height: 120px;"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-xs-7">
+                      <p>Additional Cost</p>
+                      <p class="text-muted"><i class="fa fa-info-circle"></i> If the registrant selects this option, the total cost can be adjusted. Example: A t-shirt could add an additional $5 to the cost.</p>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+                        <input type="text" class="form-control marginless" ng-model="choice.amount">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+
 
               <div class="input-group col-xs-7">
                   <input ng-model="editBlockAddOptionValue" type="text" placeholder="New Answer" class="form-control" ng-enter="editBlockAddOption(editBlockAddOptionValue); editBlockAddOptionValue='';">
