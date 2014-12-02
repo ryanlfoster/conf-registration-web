@@ -43,44 +43,55 @@ angular.module('confRegistrationWebApp')
         message: $sce.trustAsHtml('Saving...')
       };*/
 
+      var invalidNumber = false;
 
       angular.forEach($scope.conference.registrationPages, function(page) {
         angular.forEach(page.blocks, function(block) {
           if(block.content !== null) {
             angular.forEach(block.content.choices, function(choice) {
-              choice.amount = Number(choice.amount);
+              if(_.isNaN(Number(choice.amount))) {
+               $scope.notify = {
+                 class: 'alert-danger',
+                 message: $sce.trustAsHtml('<strong>Invalid character!</strong> No commas.')
+               };
+                invalidNumber = true;
+             } else {
+                choice.amount = Number(choice.amount);
+              }
             });
           }
         });
       });
 
-      $http({
-        method: 'PUT',
-        url: 'conferences/' + conference.id,
-        data: $scope.conference
-      }).success(function () {
-        formSaving = false;
-        $scope.notify = {
-          class: 'alert-success',
-          message: $sce.trustAsHtml('<strong>Saved!</strong> Your form has been saved.')
-        };
+      if(invalidNumber === false) {
+        $http({
+          method: 'PUT',
+          url: 'conferences/' + conference.id,
+          data: $scope.conference
+        }).success(function () {
+          formSaving = false;
+          $scope.notify = {
+            class: 'alert-success',
+            message: $sce.trustAsHtml('<strong>Saved!</strong> Your form has been saved.')
+          };
 
-        //Update cache
-        if (angular.isDefined($scope.conference)) {
-          ConfCache.update(conference.id, $scope.conference);
-        }
+          //Update cache
+          if (angular.isDefined($scope.conference)) {
+            ConfCache.update(conference.id, $scope.conference);
+          }
 
-        $timeout.cancel(formSavingNotifyTimeout);
-        formSavingNotifyTimeout = $timeout(function () {
-          $scope.notify = {};
-        }, 2000);
-      }).error(function (data) {
-        formSaving = false;
-        $scope.notify = {
-          class: 'alert-danger',
-          message: $sce.trustAsHtml('<strong>Error</strong> ' + data)
-        };
-      });
+          $timeout.cancel(formSavingNotifyTimeout);
+          formSavingNotifyTimeout = $timeout(function () {
+            $scope.notify = {};
+          }, 2000);
+        }).error(function (data) {
+          formSaving = false;
+          $scope.notify = {
+            class: 'alert-danger',
+            message: $sce.trustAsHtml('<strong>Error</strong> ' + data)
+          };
+        });
+      }
     };
 
     $scope.previewForm = function () {
