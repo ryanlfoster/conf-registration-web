@@ -34,11 +34,11 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/1d24cfec.651dcdb6.style.css">
+  <link rel="stylesheet" href="/css/a7296f59.0ae7051e.style.css">
 
-  <script src="scripts/d20516c9.d20516c9.components.js"></script>
+  <script src="scripts/bc324e1f.bc324e1f.components.js"></script>
 
-  <script src="scripts/d51cc66e.46f8bfac.eventApp.js"></script>
+  <script src="scripts/c52e3835.46f8bfac.eventApp.js"></script>
   <script src="scripts/00a1b281.00a1b281.errorNotify.js"></script>
   <script>
     Hoptoad.setKey('e7a93aafa70a5d3929679c5ad95bf8c7');
@@ -69,10 +69,10 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
-              <li><a href="#/logout/">Logout</a></li>
+              <li ng-if="globalPage !== 'dashboard'"><a href="#/help/"><i class="fa fa-medkit"></i> I Need Help!</a></li>
+              <li><a href="#/logout/"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </div>
-          <a href="#/help/" class="btn btn-info help-btn" role="button" ng-show="globalPage !== 'dashboard'"><i class="fa fa-medkit"></i> I Need Help!</a>
         </div>
       </div>
     </div>
