@@ -33,10 +33,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/8b211350.f1ba6f80.style.css">
+  <link rel="stylesheet" href="/css/74137466.28d6892a.style.css">
 
   <script src="scripts/221dcd19.221dcd19.components.js"></script>
-  <script src="scripts/60ffe3ec.0dac90da.eventApp.js"></script>
+  <script src="scripts/e861d652.0e144432.eventApp.js"></script>
   <script src="scripts/00a1b281.00a1b281.errorNotify.js"></script>
   <script>
     Hoptoad.setKey('e7a93aafa70a5d3929679c5ad95bf8c7');
@@ -46,7 +46,7 @@
 
 <body ng-class="globalPage.bodyClass" ng-cloak="">
 
-<div ng-if="globalPage.type === 'admin'">
+<div ng-if="globalPage.type === 'admin' || globalPage.type === 'landing'">
   <div class="alert alert-warning eventhub-growl" ng-show="growlMessage">
     <button type="button" class="close" ng-click="growlMessage=''">&times;</button>
     <p>{{growlMessage}} <a href="" ng-click="growlUndo()" class="alert-link">Undo</a></p>
@@ -59,7 +59,7 @@
             <i class="fa fa-users"></i> Event Registration Tool
           </a>
         </div>
-        <div class="col-xs-6 usr-greeting">
+        <div class="col-xs-6 usr-greeting" ng-if="globalGreetingName">
           <div class="btn-group">
             <button type="button" class="btn btn-default name-btn">Hello <strong ng-bind="globalGreetingName"></strong></button>
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -74,7 +74,7 @@
       </div>
     </div>
   </header>
-  <section id="pagetitle" ng-class="globalPage.class">
+  <section id="pagetitle" ng-if="globalPage.type === 'admin'" ng-class="globalPage.class">
     <div class="container">
       <div class="row">
         <div ng-class="{'col-xs-3': !globalPage.confId, 'col-xs-4': globalPage.confId}">
@@ -90,22 +90,6 @@
       </div>
     </div>
   </section>
-</div>
-
-<div ng-if="globalPage.type === 'landing'">
-  <header id="masthead">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6">
-          <a class="logo" href="/">
-              <i class="fa fa-users"></i> Event Registration Tool
-          </a>
-        </div>
-        <div class="col-xs-6">
-        </div>
-      </div>
-    </div>
-  </header>
 </div>
 
 <div ng-if="globalPage.type === 'registration'">

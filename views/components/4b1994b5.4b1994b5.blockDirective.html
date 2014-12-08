@@ -59,17 +59,8 @@
         <div class="tab-content">
           <div class="tab-pane fade in" ng-class="{active: activeTab === 'options'}">
             <div class="form-group">
-              <div class="row">
-                <div class="col-sm-6">
-                  <label class="inline-label">Title</label>
-                  <input type="text" class="form-control field-label" placeholder="Label" ng-model="block.title">
-                </div>
-                <div class="col-sm-6">
-                  <label class="inline-label">Export Title</label>
-                  <i popover="If a value is entered here, it will replace the question title in an export file." popover-trigger="mouseenter" class="fa fa-question-circle btn-link"></i>
-                  <input type="text" class="form-control field-label" placeholder="Label" ng-model="block.exportFieldTitle">
-                </div>
-              </div>
+              <label>Title</label>
+              <input type="text" class="form-control field-label" placeholder="Label" ng-model="block.title">
             </div>
 
             <div class="form-group" ng-show="block.type === 'paragraphContent'">
