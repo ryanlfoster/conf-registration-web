@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=630">
-  <link rel="shortcut icon" type="image/png" href="/img/691d635b.691d635b.favicon.png">
 
   <title ng-bind="generateTitle(globalPage.title)"></title>
 
@@ -31,10 +30,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/8b49d7db.8b49d7db.components.css"/>
-  <link rel="stylesheet" href="/css/bdba5d37.78764493.style.css">
+  <link rel="stylesheet" href="/css/0e676535.c6a85d5e.style.css">
 
   <script src="scripts/bea9ca50.bea9ca50.components.js"></script>
-  <script src="scripts/be4d3b4d.a569b981.eventApp.js"></script>
+  <script src="scripts/c308bcd8.d942c2b3.eventApp.js"></script>
   <script src="scripts/00a1b281.00a1b281.errorNotify.js"></script>
   <script>
     Hoptoad.setKey('e7a93aafa70a5d3929679c5ad95bf8c7');
@@ -43,11 +42,6 @@
 </head>
 
 <body ng-class="globalPage.bodyClass" ng-cloak="">
-<div class="rootLoadingMsg" ng-if="loadingMsg">
-  <div class="blueMsg">
-    <div><i class="fa fa-spinner fa-spin"></i> {{loadingMsg}}...</div>
-  </div>
-</div>
 
 <div ng-if="globalPage.type === 'admin' || globalPage.type === 'landing'">
   <div class="alert alert-warning eventhub-growl" ng-show="growlMessage">
