@@ -1,0 +1,40 @@
+<div class="alert eventhub-growl" ng-class="notify.class" ng-bind-html="notify.message" ng-show="notify.message && !growlMessage"></div>
+<div class="row">
+  <!-- Elements -->
+  <div form-elements="" class="col-xs-12" ng-show="conference.registrationPages.length > 0">
+    <div class="questions-toolbar-container">
+      <div class="well well-sm questions-toolbar">
+        <div class="row">
+          <div class="col-sm-4 hidden-xs">
+            <h2 class="page-title">Questions</h2>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <div class="btn-group pull-right" role="group">
+              <button ng-click="addNewPage()" class="btn btn-success"><i class="fa fa-plus"></i> New Page</button>
+              <button ng-click="previewForm()" class="btn btn-info save-btn"><i class="fa fa-eye"></i> Preview Form</button>
+              <button ng-click="toggleQuestionsToolbar()" class="btn btn-default"><i class="fa" ng-class="{'fa-chevron-up': questionsToolbarVisible, 'fa-chevron-down': !questionsToolbarVisible}"></i></button>
+            </div>
+          </div>
+        </div>
+        <div ui-tree="toolbarTreeConfig" class="row spacing-above-xs" ng-if="questionsToolbarVisible">
+          <div class="col-xs-12" ui-tree-nodes="" ng-model="questions">
+            <span ui-tree-node="" ng-repeat="question in questions" class="label label-primary">
+              <i class="fabtn fa" ng-class="question.iconClass"></i>
+              <span class="text">{{question.name}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ui-tree="pageTreeConfig" class="pages">
+      <div class="page-header">
+        <h2>Pages <small>Drag questions from above and edit pages</small></h2>
+      </div>
+      <form class="form-horizontal" ui-tree-nodes="" role="form" ng-model="conference.registrationPages" drop-type="page">
+        <div ui-tree-node="" ng-class="{overflow: !isPageHidden(page.id)}" ng-repeat="page in conference.registrationPages" data-page-id="{{page.id}}">
+          <hr ng-if="!$first">
+          <page></page>
+        </div>
+      </form>
+    </div>
+  </div></div>
