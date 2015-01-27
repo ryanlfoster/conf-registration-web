@@ -1,0 +1,35 @@
+<article>
+  <div ng-if="wizard">
+    <div class="row padded">
+      <div class="col-xs-2">
+        <a href="" ng-click="deletePage(page.id, true)" class="btn btn-danger"><i class="fa fa-times"></i> Delete Page</a>
+      </div>
+      <div class="col-xs-9">
+        <h1><input placeholder="Page Title" type="text" ng-model="page.title"></h1>
+      </div>
+      <div class="col-xs-1">
+        <i class="fa" ng-class="{'fa-caret-square-o-up': !isPageHidden(page.id), 'fa-caret-square-o-down': isPageHidden(page.id)}" style="font-size: 30px" ng-click="togglePage(page.id)"></i>
+      </div>
+    </div>
+
+    <ul class="connectedSortable list-unstyled sortable2" id="{{page.id}}" ng-show="!isPageHidden(page.id)">
+      <li ng-repeat="block in page.blocks" block="block" crs-block=""></li>
+    </ul>
+  </div>
+
+  <div ng-show="!wizard">
+    <h2 ng-bind="page.title"></h2>
+
+    <form name="pageForm">
+      <div class="alert" ng-class="notify.class" ng-bind-html="notify.message" ng-show="notify.class"></div>
+      <div ng-repeat="block in page.blocks" block="block" crs-block=""></div>
+      <br>
+      <button class="btn btn-success btn-lg btn-important eighty" type="submit" ng-click="validateAndGoToNext(pageForm.$valid)" ng-show="nextPage">Next Page
+      </button>
+
+      <button class="btn btn-success btn-lg btn-important eighty" ng-click="validateAndGoToNext(pageForm.$valid)" ng-show="!nextPage">Continue
+      </button>
+      <a href="" ng-click="previousPage()" class="btn btn-subtle btn-lg twenty">Go Back</a>
+    </form>
+  </div>
+</article>
