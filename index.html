@@ -31,10 +31,10 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/57bc68ef.57bc68ef.components.css"/>
-  <link rel="stylesheet" href="/css/1d79db56.f369c2f5.style.css">
+  <link rel="stylesheet" href="/css/5455c5fb.647ebbae.style.css">
 
   <script src="scripts/f17acdf4.f17acdf4.components.js"></script>
-  <script src="scripts/49dd3b70.00f7010b.eventApp.js"></script>
+  <script src="scripts/306931e4.a2c84fa5.eventApp.js"></script>
   <script src="scripts/282aa04b.282aa04b.errorNotify.js"></script>
 </head>
 
@@ -54,7 +54,10 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6">
-          <a class="logo" href="#/eventDashboard">
+          <a class="logo" href="#/" ng-if="globalPage.type === 'landing'">
+            <i class="fa fa-users"></i> Event Registration Tool
+          </a>
+          <a class="logo" href="#/eventDashboard" ng-if="globalPage.type === 'admin'">
             <i class="fa fa-users"></i> Event Registration Tool
           </a>
         </div>
