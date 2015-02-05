@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=630">
-  <link rel="shortcut icon" type="image/png" href="/img/691d635b.691d635b.favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/img/691d635b.691d635b.favicon.png"/>
 
   <title ng-bind="generateTitle(globalPage.title)">Event Registration Tool</title>
 
@@ -34,11 +34,11 @@
   <link rel="stylesheet" href="/css/5455c5fb.647ebbae.style.css">
 
   <script src="scripts/f17acdf4.f17acdf4.components.js"></script>
-  <script src="scripts/7752ce16.12820d1b.eventApp.js"></script>
+  <script src="scripts/5c9dde9f.12820d1b.eventApp.js"></script>
   <script src="scripts/282aa04b.282aa04b.errorNotify.js"></script>
 </head>
 
-<body ng-class="globalPage.bodyClass" ng-cloak="">
+<body ng-class="globalPage.bodyClass" ng-cloak>
 <div class="rootLoadingMsg" ng-if="loadingMsg">
   <div class="blueMsg">
     <div><i class="fa fa-spinner fa-spin"></i> {{loadingMsg}}...</div>
@@ -83,7 +83,7 @@
           <h1 ng-bind="globalPage.title"></h1>
         </div>
         <div ng-class="{'col-xs-6': !globalPage.confId, 'col-xs-5': globalPage.confId}">
-          <nav id="subnav" ng-show="globalPage.confId" admin-nav="">
+          <nav id="subnav" ng-show="globalPage.confId" admin-nav>
           </nav>
         </div>
         <div class="col-xs-3 right">
@@ -116,7 +116,7 @@
   </section>
 
   <div class="row previewRow" ng-show="registerMode === 'preview'">
-    <div class="col-xs-12" style="font-size:24px">
+    <div class="col-xs-12" style="font-size:24px;">
       Preview Mode
     </div>
     <div class="col-xs-12">
