@@ -32,11 +32,11 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/57bc68ef.57bc68ef.components.css"/>
-  <link rel="stylesheet" href="/css/73da6d35.e0b5ccce.style.css">
+  <link rel="stylesheet" href="/css/df1d8405.10833982.style.css">
 
   <script src="scripts/f14d2dca.f14d2dca.components.js"></script>
 
-  <script src="scripts/f76738c0.2af533bf.eventApp.js"></script>
+  <script src="scripts/8d0cf4b0.2af533bf.eventApp.js"></script>
   <script src="scripts/282aa04b.282aa04b.errorNotify.js"></script>
 </head>
 
@@ -120,11 +120,11 @@
       Preview Mode
     </div>
     <div class="col-xs-12">
-      <ul class="horizontal">
+      <ul class="list-inline preview-nav">
         <li><a ng-href="#/eventOverview/{{globalPage.confId}}">Overview</a></li>
-        <li> | <a ng-href="#/eventRegistrations/{{globalPage.confId}}">Registrations</a></li>
-        <li> | <a ng-href="#/eventDetails/{{globalPage.confId}}">Details</a></li>
-        <li> | <a ng-href="#/eventForm/{{globalPage.confId}}">Questions</a></li>
+        <li><a ng-href="#/eventRegistrations/{{globalPage.confId}}">Registrations</a></li>
+        <li><a ng-href="#/eventDetails/{{globalPage.confId}}">Details</a></li>
+        <li><a ng-href="#/eventForm/{{globalPage.confId}}">Questions</a></li>
       </ul>
     </div>
   </div>
@@ -136,7 +136,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <ul class="horizontal blue">
+        <ul class="list-inline">
           <li><a href="#/privacy/">Privacy Policy</a></li>
           <li><a href="#/help/">Help</a></li>
           <li ng-if="environment === 'staging'"><a ng-href="http://localhost:9000/#/auth/{{crsToken}}">Local Dev Environment</a></li>
