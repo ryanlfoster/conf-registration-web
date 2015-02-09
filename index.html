@@ -32,11 +32,11 @@
   <!-- End Bootstrap -->
 
   <link rel="stylesheet" href="css/57bc68ef.57bc68ef.components.css"/>
-  <link rel="stylesheet" href="/css/88463fea.17c05cac.style.css">
+  <link rel="stylesheet" href="/css/73da6d35.e0b5ccce.style.css">
 
   <script src="scripts/f14d2dca.f14d2dca.components.js"></script>
 
-  <script src="scripts/1c5a85e0.0afaa304.eventApp.js"></script>
+  <script src="scripts/f76738c0.2af533bf.eventApp.js"></script>
   <script src="scripts/282aa04b.282aa04b.errorNotify.js"></script>
 </head>
 
@@ -63,8 +63,8 @@
             <i class="fa fa-users"></i> Event Registration Tool
           </a>
         </div>
-        <div class="col-md-6 usr-greeting" ng-if="globalGreetingName">
-          <div class="btn-group">
+        <div class="col-md-6 text-right" ng-if="globalGreetingName">
+          <div class="btn-group usr-greeting">
             <button type="button" class="btn btn-default name-btn">Hello <strong ng-bind="globalGreetingName"></strong></button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
               <span class="caret"></span>
@@ -108,8 +108,8 @@
             <h1 ng-bind="globalPage.title"></h1>
           </a>
         </div>
-        <div class="col-sm-2 usr-greeting">
-          <a href="#/logout" class="btn btn-primary btn-uppercase">Logout</a>
+        <div class="col-sm-2 text-right">
+          <a href="#/logout" class="btn btn-primary btn-important">Logout</a>
         </div>
       </div>
     </div>
